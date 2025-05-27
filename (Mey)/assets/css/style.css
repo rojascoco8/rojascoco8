@@ -1,0 +1,383 @@
+/* Trivia Estilo */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed';
+}
+
+body {
+    height: 200vh;
+    background: linear-gradient(#584bb4, #6a416b, #685082);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 500px;
+    background: linear-gradient(#6051e0, #ad79b9);
+    height: 80%;
+    padding: 20px;
+    position: relative;
+    border-radius: 10px; /* Añadido para bordes redondeados del contenedor principal */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Añadido para una ligera sombra */
+    display: flex; /* Para centrar verticalmente el contenido */
+    flex-direction: column; /* Para ordenar los elementos verticalmente */
+    align-items: center; /* Para centrar horizontalmente los elementos */
+    justify-content: space-around; /* Para distribuir el espacio verticalmente */
+}
+
+.container > * { /* Aplica estilos a los hijos directos del contenedor */
+    width: 100%; /* Asegura que los elementos hijos tomen el ancho completo */
+    text-align: center; /* Centra el texto dentro de los elementos hijos */
+}
+
+.container .img {
+    width: 140px;
+    position: absolute;
+    top: -60px;
+    right: -90px;
+    z-index: -1;
+}
+
+header {
+    background-color: #6b5ae4;
+    color: #fff;
+    font-size: 16px; /* Ajustado tamaño de fuente */
+    padding: 15px; /* Ajustado padding */
+    border-radius: 50px;
+    box-shadow: 3px 3px 5px #2a2929;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Añadido margen inferior para separar de la navegación */
+    width: 90%; /* Ajusta el ancho del header dentro del contenedor */
+}
+
+.inicio {
+    text-align: center;
+    padding-top: 40px; /* Reducido padding superior */
+    color: #fff;
+    font-size: 24px; /* Ajustado tamaño de fuente */
+}
+
+.inicio p {
+    font-size: 18px; /* Ajustado tamaño de fuente del párrafo */
+    margin-top: 10px;
+}
+
+.inicio input {
+    display: block;
+    width: 250px; /* Ajustado ancho del input */
+    margin: 20px auto; /* Ajustado márgenes */
+    font-size: 18px; /* Ajustado tamaño de fuente */
+    padding: 12px; /* Ajustado padding */
+    border-radius: 50px;
+    border: 0;
+    text-align: center;
+    margin-top: 20px; /* Ajustado margen superior */
+}
+
+.btn {
+    background: linear-gradient(#6758f4, #863eb3ab);
+    color: #fff;
+    border: 0;
+    padding: 12px 10px; /* Ajustado padding */
+    font-weight: bold;
+    border-radius: 30px;
+    margin-top: 25px; /* Ajustado margen superior */
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 18px; /* Ajustado tamaño de fuente */
+    transition: .3s;
+    width: auto; /* Ajusta el ancho del botón al contenido */
+    margin: 20px auto; /* Centra el botón */
+}
+
+.btn:hover {
+    background: linear-gradient(#180c85, #590b8aab);
+}
+.puntaje,
+.jugador {
+    display: flex;
+    align-items: center;
+}
+
+.puntaje img,
+.jugador img {
+    width: 40px;
+    background-color: #3f40ae;
+    border-radius: 50%;
+    border: 2px solid #ffe43a;
+    z-index: 2;
+}
+
+.puntaje .puntos {
+    background-color: #3f40ae;
+    width: 90px;
+    padding: 5px;
+    border-radius: 0 30px 30px 0;
+    margin-left: -5px;
+    z-index: 0;
+    font-size: 16px;
+}
+
+.jugador .nombre {
+    background-color: #3f40ae;
+    width: 90px;
+    padding: 5px;
+    border-radius: 30px 0px 0px 30px;
+    margin-right: -5px;
+    font-size: 16px;
+}
+
+/* SECCION MENU DEL JUEGO */
+.menu {
+    margin-top: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+.categorias {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 170px 170px;
+    gap: 40px;
+    justify-content: space-evenly;
+}
+
+.categoria {
+    background-color: #60439d;
+    width: 170px;
+    height: 90px;
+    border-radius: 15px;
+    color: #fff;
+    position: relative;
+    display: flex;
+    align-items: end;
+    padding: 20px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.categoria .foto-categoria {
+    width: 80px;
+    position: absolute;
+    left: 50%;
+    top: -35px;
+    transform: translateX(-50%);
+    transition: .3s;
+}
+
+.categoria:hover {
+    box-shadow: 0px 0px 15px #ffe43a;
+}
+
+.categoria:hover .foto-categoria {
+    scale: 1.2;
+}
+
+/* PANTALLA DE PREGUNTAS */
+.juego {
+    color: #fff;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.juego .pregunta {
+    margin: 10px 0 30px 0;
+    font-size: 20px;
+}
+
+.juego .opcion {
+    display: block;
+    width: 90%;
+    margin: auto;
+    border: 0;
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.correcta {
+    background-color: rgba(56, 255, 202, 1);
+}
+
+.incorrecta {
+    background-color: rgba(255, 56, 56, 1);
+}
+
+.no-events {
+    pointer-events: none;
+}
+
+.efecto {
+    animation: 1s zoom;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+        color: #fff;
+        font-weight: bold;
+    }
+
+    40% {
+        transform: scale(1.3);
+        color: #ffe43a;
+    }
+
+    60% {
+        transform: scale(1.3);
+        color: #ffe43a;
+    }
+
+    100% {
+        transform: scale(1);
+        color: #fff;
+        font-weight: normal;
+    }
+}
+
+.desabilitada {
+    filter: grayscale(.9) opacity(.7);
+}
+
+/* SECCION FINAL */
+.final {
+    margin-top: 30px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; /* Distribuye el espacio vertical */
+    height: 100%; /* Asegura que el main final ocupe todo el espacio disponible */
+}
+
+.final > * {
+    width: 80%; /* Limita el ancho de los elementos dentro del final */
+}
+
+.final .medalla {
+    position: relative;
+    width: 100px;
+    margin: 20px auto;
+}
+
+.final .medalla .nombre {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.final img {
+    display: block;
+    width: 100px;
+    margin: auto;
+}
+
+.final .puntaje-final {
+    font-size: 50px;
+    color: #fff;
+    margin: 10px 0;
+    display: inline-block;
+}
+
+/* ESTILOS PARA JUEGO GANADO Y JUEGO PERDIDO */
+#mensaje-resultado {
+    color: #d9534f; /* Rojo por defecto (Juego Perdido) */
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Añade una sombra para resaltar */
+    background-color: rgba(0, 0, 0, 0.2); /* Fondo oscuro para el cuadro */
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.ganado {
+    color: #5cb85c !important; /* Verde para ganado */
+}
+
+/* BARRA DE NAVEGACION SUPERIOR */
+.barra-navegacion-superior {
+    text-align: center; /* Centra horizontalmente el contenido dentro del nav */
+    padding: 10px 0; /* Añade un poco de espacio vertical */
+    margin-bottom: 10px; /* Añade un margen inferior para separarlo del header */
+    /* Puedes agregar más estilos como un fondo si lo deseas */
+    /*background-color: rgba(107, 90, 228, 0.8);  Fondo semitransparente similar al header */
+    border-radius: 0 0 10px 10px; /* Bordes redondeados en la parte inferior */
+}
+
+.barra-navegacion-superior .botonesPrincipal {
+    display: inline-block; /* Permite que el ancho se ajuste al contenido y se centre con text-align */
+    list-style: none;
+    padding: 0;
+    display: flex; /* Para espaciar los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    gap: 10px;
+    margin: 0; /* Elimina márgenes predeterminados */
+}
+
+.barra-navegacion-superior .botonesPrincipal li {
+    margin: 0;
+}
+
+.barra-navegacion-superior .botonesPrincipal li a {
+    display: inline-block;
+    background: linear-gradient(#6758f4, #863eb3ab);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: background .3s ease;
+}
+.barra-navegacion-superior .botonesPrincipal li a:hover {
+    background: linear-gradient(#180c85, #590b8aab);
+}
+
+/* ESTILOS PARA LA NAVEGACIÓN FINAL */
+.navegacion-final {
+    text-align: center;
+    margin-top: 30px;
+    width: 100%; /* Ocupa el ancho completo del contenedor */
+}
+
+.navegacion-final .botonesPrincipal {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Distribuye los botones con espacio */
+    gap: 10px; /* Espacio entre los botones (alternativa a space-around) */
+    margin: 0;
+}
+
+.navegacion-final .botonesPrincipal li {
+    margin: 0;
+}
+
+.navegacion-final .botonesPrincipal li a {
+    display: inline-block;
+    background: linear-gradient(#6758f4, #863eb3ab);
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: background .3s ease;
+}
+
+.navegacion-final .botonesPrincipal li a:hover {
+    background: linear-gradient(#180c85, #590b8aab);
+}

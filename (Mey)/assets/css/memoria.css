@@ -1,0 +1,386 @@
+/* Estilos generales */
+body {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Título principal */
+h1 {
+  color: #f7e600;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Contenedor principal */
+.memoria-main {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 20px;
+  align-items: start;
+}
+
+/* Sección de importancia */
+.importance {
+  background-color: rgba(255, 255, 255, 0.45); /* Más transparente */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.importance h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #5e35b1;
+}
+
+.importance p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+.importance ul {
+  list-style-type: none; /* Quitar viñetas */
+  padding-left: 0;
+  text-align: left;
+  color: #444;
+}
+
+.importance ul li {
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+/* Sección de niveles */
+.game-options {
+  text-align: center;
+}
+
+.game-options h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #4a148c;
+}
+
+.game-option-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.game-option {
+  background-color: rgba(255, 255, 255, 0.7); /* Semi transparente */
+  border-radius: 15px;
+  padding: 15px;
+  width: 180px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.game-option:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.game-option img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.game-option span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+/* Diseño responsive para pantallas pequeñas */
+@media (max-width: 992px) {
+  .memoria-main {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .importance {
+    margin: 0 auto;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+
+  .game-options {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .game-option-container {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .game-option {
+    margin: 10px;
+    width: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .importance h2,
+  .game-options h2 {
+    font-size: 1.4em;
+  }
+
+  .game-option {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .game-option-container {
+    flex-direction: column;
+  }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#loader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #a18cd1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #fff;
+  border-top-color: #f7e600;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.dark-mode {
+  background: #1e1e2f;
+  color: #eee;
+}
+
+.dark-mode .importance,
+.dark-mode .game-option {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #eee;
+}
+
+/* === Botón de cambio de tema === */
+#toggle-theme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #333;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+  z-index: 999;
+}
+
+#toggle-theme:hover {
+  background: #f7e600;
+}
+/* Estilo de la barra de navegación */
+.barra-navegacion {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 30px auto;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+
+.botones-indice {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.boton-nav {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #af4caa;
+  color: white;
+  border: 2px solid #d370c6;
+  border-radius: 8px;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-nav:hover {
+  background-color: #af44aa;
+  border-color: #8d379e;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Estilos específicos para memoria4x4.html y memoria6x6.html */
+
+.memoria-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 80%;
+  margin: 50px auto;
+}
+
+.memoria-seccion1 {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.memoria-seccion1 button {
+  height: 100px;
+  width: 100px;
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Borde semitransparente */
+  border-radius: 12px; /* Bordes más redondeados */
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+  color: white; /* Texto blanco */
+  font-size: 1em;
+  transition: border-color 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
+}
+
+.memoria-seccion1 button:hover {
+  cursor: pointer;
+  border-color: rgba(255, 255, 255, 0.8); /* Borde más visible al pasar el ratón */
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo ligeramente más oscuro al pasar el ratón */
+}
+
+.memoria-seccion2 {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 250px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.memoria-estadisticas {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+}
+
+
+/* Estilos para los botones de acción */
+#reiniciar-juego, #pagina-principal button, #pagina-memoria6x6 button, #pagina-memoria4x4 button {
+  padding: 10px 20px;
+  border: 2px solid #d370c6;
+  border-radius: 5px;
+  background-color: #af4caa;
+  color: white;
+  font-size: 1em;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin-top: 10px;
+}
+
+#reiniciar-juego:hover, #pagina-principal button:hover, #pagina-memoria6x6 button:hover, #pagina-memoria4x4 button:hover {
+  cursor: pointer;
+  background-color: #af44aa;
+  border-color: #8d379e;
+}
+.progreso-jugador {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  margin: 40px auto;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.progreso-jugador h2 {
+  color: #5a28d1;
+  margin-bottom: 15px;
+}
+
+.progreso-jugador ul {
+  list-style: none;
+  padding: 0;
+}
+
+.progreso-jugador li {
+  margin-bottom: 8px;
+  font-size: 1.1em;
+}
+
+#reiniciar-progreso {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-top: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#reiniciar-progreso:hover {
+  background-color: #e74c3c;
+}

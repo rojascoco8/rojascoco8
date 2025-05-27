@@ -1,0 +1,199 @@
+.juegoMate {
+  background-color: #a181d8;
+}
+
+/*operaciones mate*/
+.contenedorMate {
+  text-align: center;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #f5df5fda; /* celeste claro */
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', sans-serif;/*fuentes preferida y una alternativa genérica*/
+}
+.contenedorMate h1{
+  text-shadow: 2px 2px 3px rgb(109, 20, 151);
+  color:#428ae9
+}
+
+/* Diseño Operaciones */
+#tipoOperacion {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: rebeccapurple; /* morado elegante */
+  margin-bottom: 10px;
+}
+
+/*preguntas mate*/
+#pregunta {
+  font-size: 1.8em;
+  margin: 20px 0;
+  color: #4a148c; /* morado oscuro */
+}
+
+/* respuesta botones */
+.opciones {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.opcion {
+  background-color: #3eb7eb; /* amarillo */
+  color: #530d69;
+  font-size: 1.2em;
+  border: 2px solid #fbc02d;
+  border-radius: 50px;
+  padding: 30px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave para retroalimentación */
+}
+
+.opcion:hover {
+  background-color: #8e4ac5; /* amarillo más suave */
+}
+
+.opcion:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/*puntajes y ronda */
+.estado {
+  font-size: 1em;
+  color: #1d2361; /* azul profundo */
+  margin-top: 10px;
+}
+
+.estado p {
+  margin: 5px 0;
+}
+
+.estado span {
+  font-weight: bold;
+}
+
+/*el boton siguiente */
+#btnNuevaRonda {
+  background-color: #4a0f6b; /* morado intermedio */
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 1em;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btnNuevaRonda:hover {
+  background-color: #42a5f5;
+}
+
+/*resultados*/
+#mensajeResultado {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+#mensajeResultado.correcto {
+  color: rgb(15, 145, 15);
+}
+
+#mensajeResultado.incorrecto {
+  color: rgb(183, 22, 22);
+}
+
+/*tiempo de la respuesta*/
+#tiempo {
+  font-weight: bold;
+  color: #d84315; /* naranja oscuro */
+  transition: color 0.3s ease, font-weight 0.3s ease; /* Transición para alerta de tiempo */
+}
+
+/*botones de la navegacion*/
+nav {
+  margin-top: 30px;
+}
+
+.botonesIndice {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 10px; /* Espacio entre los botones */
+}
+
+.botonesIndice li a {
+  display: inline-block;
+  background-color: #4a0f6b; /* Azul claro */
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.botonesIndice li a:hover {
+  background-color: #42a5f5; /* Azul un poco más oscuro */
+}
+
+.iconos-animados {
+  position: fixed; /* Cubre toda la ventana */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* Detrás del contenido */
+}
+
+.icono-matematico {
+  position: absolute;
+  font-size: 1.5em;
+  color: #673ab7;
+  opacity: 0.6;
+  animation: rotarIcono 10s linear infinite, moverIcono 15s linear infinite; /* Añadimos moverIcono */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+}
+
+/* Variación para algunos iconos (pares) */
+.iconos-animados span:nth-child(even) {
+  font-size: 2em;
+  opacity: 0.8;
+  animation-duration: 12s;
+  top: calc(var(--pos-y) * 100%); /* Posición vertical */
+  right: calc(var(--pos-x) * 100%); /* Usamos right para dispersar */
+}
+
+/* Variación para otros iconos (impares) */
+.iconos-animados span:nth-child(odd) {
+  top: calc(var(--pos-y) * 100%); /* Posición vertical */
+  left: calc(var(--pos-x) * 100%); /* Usamos left para dispersar */
+  font-size: 1.2em;
+  opacity: 0.7;
+  animation-duration: 8s;
+}
+
+/* Posiciones iniciales variadas (¡Ajusta estos valores!) */
+.iconos-animados span {
+  --pos-y: calc(0.05 + var(--index) * 0.05); /* Rango más amplio */
+  --pos-x: calc(0.05 + var(--index) * 0.05); /* Rango más amplio */
+}
+
+/* Animación de movimiento (más desplazamiento) */
+@keyframes moverIcono {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(80px, -80px); } /* Más desplazamiento */
+  100% { transform: translate(0, 0); }
+}
+
+/* Animación de rotación */
+@keyframes rotarIcono {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,225 @@
+
+  body.paginaPrincipal {
+    font-family: sans-serif;
+    background-color: #0c0a0e;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: linear-gradient(to bottom right,#7827a7,#44a2c5,#028866, #8f2b55);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 90%;
+    max-width: 960px;
+}
+
+h1 {
+    color: #09346f;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 3px rgba(145, 151, 20, 0.5); /* Sombra negra semitransparente con 3px de desenfoque */
+
+}
+
+.lead {
+    color: #704319;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.col-md-4 {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+}
+
+.card {
+    background-color: #da98f6d7;
+    border-color: #37075e;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.card-img-top {
+  width: 80%;
+  height: 200px; /* Define una altura para que el círculo sea visible */
+  /*object-fit: cover;  Recorta la imagen para que se ajuste al círculo */
+  border-radius: 8%; /* Aplica el radio de borde circular */
+  margin: 10px auto; /* Centra la imagen horizontalmente y añade un poco de margen superior e inferior */
+  display: block; /* Evita problemas de espaciado con inline elements */
+}
+
+.card-body {
+    padding: 5px;
+    text-align: center;
+    flex-grow: 1; /* Permite que el contenido del cuerpo crezca para llenar la tarjeta */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacia el título y el botón */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #09346f;
+    font-weight: bold;
+    text-shadow: 2px 2px 3px rgba(45, 13, 81, 0.5); /* Sombra negra semitransparente con 3px de desenfoque */
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: #704319;
+    margin-bottom: 15px;
+    flex-grow: 3; /* Empuja el botón hacia abajo */
+}
+
+.card:hover .card-img-top {
+  transform: rotate(360deg); /* Gira la imagen 360 grados */
+  transition: transform 0.5s ease-in-out; /* Define la duración y la animación de la transición */
+}
+
+.btn {
+  display: block; /* Cambiar a block para permitir margin auto */
+  font-weight: 400;
+  color: #e6bd5e;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-weight: bold;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.3rem 0.8rem; /* Reducir el padding */
+  font-size: 0.9rem; /* Reducir el tamaño de la fuente */
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.2s ease-in-out; /* Asegúrate de incluir transform en la transición si lo estás usando para el hover */
+  width: 70%; /* O un porcentaje menor para que no ocupe todo el ancho de la tarjeta */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-warning, .btn-primary  {
+    background-color: #8b29cc;
+    border-color: #701395;
+}
+
+.btn-warning:hover, .btn-primary:hover {
+    background-color: #bd8edc;
+    border-color: #701395;
+    font-weight: bold;
+    color: #fef6f6;
+    transform: scale(1.1); /* Aumenta el tamaño del texto en un 10% */
+    transition: transform 0.2s ease-in-out; /* Añade una transición suave para el efecto */
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #106e26;
+}
+
+.btn-success:hover {
+    background-color: #6bee8a;
+    border-color: #106e26;
+    transform: scale(1.1); /* Aumenta el tamaño del texto en un 10% */
+    transition: transform 0.2s ease-in-out; /* Añade una transición suave para el efecto */
+}
+
+/* Adaptación para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+#contenedor-cortinas {
+    position: fixed; /* Cubre toda la ventana */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20; /* Asegura que esté por encima del contenido y el confeti */
+}
+
+.cortina {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #040101ec; /* Color rojo oscuro de ejemplo */
+    transform-origin: center; /* Para la animación de apertura desde el centro */
+    transition: transform 1s ease-out; /* Transición suave para la apertura */
+}
+
+.cortina-izquierda {
+    left: 0;
+    transform: translateX(0); /* Posición inicial */
+}
+
+.cortina-derecha {
+    right: 0;
+    transform: translateX(0); /* Posición inicial */
+}
+
+/* Clase que se añadirá con JavaScript para iniciar la animación */
+.cortina.abierta-izquierda {
+    transform: translateX(-100%); /* Se mueve completamente a la izquierda */
+}
+
+.cortina.abierta-derecha {
+    transform: translateX(100%); /* Se mueve completamente a la derecha */
+}
+#confetti-container {
+    position: fixed; /* Cubre toda la ventana */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite la interacción con elementos debajo */
+    z-index: -1; /* Coloca el contenedor detrás del contenido principal */
+}
+.confetti {
+    position: absolute;
+    border-radius: 50%; /* Para hacerlo circular */
+    opacity: 0;
+    animation: fall 3s ease-in-out infinite; /* Animación de caída infinita */
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(150vh) rotate(360deg) scale(0.7); /* Caída más larga, más rotación, un poco más pequeño */
+      opacity: 0;
+    }
+  }

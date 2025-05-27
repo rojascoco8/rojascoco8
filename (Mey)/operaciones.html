@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juegos Matematicos</title>
+    <link rel="stylesheet" href="./assets/css/mate.css" />
+  </head>
+  <body class="juegoMate">
+    <div class="iconos-animados">
+      <span class="icono-matematico" style="--index: 0; --pos-y: 0.05; --pos-x: 0.45;">+</span>
+      <span class="icono-matematico" style="--index: 1; --pos-y: 0.15; --pos-x: 0.55;">-</span>
+      <span class="icono-matematico" style="--index: 2; --pos-y: 0.25; --pos-x: 0.4;">*</span>
+      <span class="icono-matematico" style="--index: 3; --pos-y: 0.35; --pos-x: 0.6;">÷</span>
+      <span class="icono-matematico" style="--index: 4; --pos-y: 0.45; --pos-x: 0.5;">+</span>
+      <span class="icono-matematico" style="--index: 5; --pos-y: 0.55; --pos-x: 0.35;">-</span>
+      <span class="icono-matematico" style="--index: 6; --pos-y: 0.65; --pos-x: 0.65;">*</span>
+      <span class="icono-matematico" style="--index: 7; --pos-y: 0.75; --pos-x: 0.4;">÷</span>
+      <span class="icono-matematico" style="--index: 8; --pos-y: 0.85; --pos-x: 0.5;">+</span>
+      <span class="icono-matematico" style="--index: 9; --pos-y: 0.95; --pos-x: 0.55;">-</span>
+      <span class="icono-matematico" style="--index: 10; --pos-y: 0.1; --pos-x: 0.2;">*</span>
+      <span class="icono-matematico" style="--index: 11; --pos-y: 0.9; --pos-x: 0.8;">÷</span>
+      <span class="icono-matematico" style="--index: 12; --pos-y: 0.2; --pos-x: 0.1;">+</span>
+      <span class="icono-matematico" style="--index: 13; --pos-y: 0.8; --pos-x: 0.9;">-</span>
+      <span class="icono-matematico" style="--index: 14; --pos-y: 0.3; --pos-x: 0.7;">*</span>
+      <span class="icono-matematico" style="--index: 15; --pos-y: 0.7; --pos-x: 0.3;">÷</span>
+      <span class="icono-matematico" style="--index: 16; --pos-y: 0.4; --pos-x: 0.9;">+</span>
+      <span class="icono-matematico" style="--index: 17; --pos-y: 0.6; --pos-x: 0.1;">-</span>
+      <span class="icono-matematico" style="--index: 18; --pos-y: 0.5; --pos-x: 0.2;">*</span>
+      <span class="icono-matematico" style="--index: 19; --pos-y: 0.5; --pos-x: 0.8;">÷</span>
+  </div>
+
+    <div class="contenedorMate">
+      <h1>¡Juegos Matemáticos!</h1>
+      <p id="tipoOperacion">La Operacion Es:<strong>---</strong></p>
+      <p id="pregunta">¿Preparados para comenzar?</p>
+
+      <div class="opciones">
+        <button id="op1" class="opcion"></button>
+        <button id="op2" class="opcion"></button>
+        <button id="op3" class="opcion"></button>
+      </div>
+      <p>Tiempo de Respuesta: <span id="tiempo">10</span> segundos</p>
+      <div class="estado">
+        <p>Puntaje: <span id="puntaje">0</span></p>
+        <p>Ronda: <span id="ronda">1</span></p>
+      </div>
+
+      <div id="mensajeResultado"></div>
+
+      <button id="btnNuevaRonda">Siguiente operación</button>
+
+        <nav>
+          <ul class="botonesIndice">
+            <!--Formulario de inicio-->
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="memoriaprincipal.html">Juego Memoria</a></li>
+            <li><a href="indextrivia.html">Juego Trivias</a></li>
+          </ul>
+        </nav>
+      
+    </div>
+    
+    <script src="./assets/js/operaciones.js"></script>
+  </body>
+</html>
